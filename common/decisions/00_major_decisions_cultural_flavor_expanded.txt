@@ -105,7 +105,7 @@ found_kingdom_of_oman_decision = {
 #####################################
 # Restore the Kingdom of Old Saxony	#
 # by Celticus Magnus			    #
-#####################################
+##################################### #Effect Done
 restore_saxony_decision = {
 	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
 	major = yes
@@ -136,7 +136,9 @@ restore_saxony_decision = {
 			has_government = feudal_government
 		}
 		highest_held_title_tier <= tier_duchy
+		current_date < 1066.1.1
 	}
+
 
 	is_valid = {
 		#You must have sufficient clout.
@@ -286,10 +288,11 @@ form_grand_duchy_saxony_decision = {
 		show_as_tooltip = {
 			form_grand_duchy_saxony_decision_scripted_effect = yes #NEED TO MAKE
 		}
-		trigger_event = {
-			id = cfe_form_grand_duchy_saxony.0001 #NEED TO MAKE
-		}
+		# trigger_event = {
+		# 	id = cfe_form_grand_duchy_saxony.0001 #NEED TO MAKE
+		# }
 		hidden_effect = {
+			form_grand_duchy_saxony_decision_scripted_effect = yes
 			add_to_global_variable_list = { #DO WE HAVE TO MAKE THESE?
 				name = unavailable_unique_decisions
 				target = flag:flag_formed_grand_duchy_saxony

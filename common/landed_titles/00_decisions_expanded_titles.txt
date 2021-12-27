@@ -1,0 +1,20 @@
+﻿k_grand_saxony = {
+	color = { 205 105 85 }
+	color2 = { 255 255 255 }
+
+    capital = c_dessau
+}
+
+k_grand_franconia = {
+	color = { 255 255 255 }
+	color2 = { 255 255 255 }
+
+    capital = c_wurzburg
+}
+
+k_grand_swabia = {
+	color = { 210 210 210 }
+	color2 = { 255 255 255 }
+
+    capital = c_ulm
+}
