@@ -1145,10 +1145,17 @@ custom_fennoscandia = {
 	}
 }
 
-custom_saxony = {
+custom_grand_saxony = {
 	duchies = {
 		#Saxony
 		d_anhalt d_angria d_westfalen d_ostfalen d_meissen d_lausitz d_holstein 
+	}
+}
+
+custom_saxony = {
+	duchies = {
+		#Saxony
+		d_anhalt d_angria d_westfalen d_ostfalen d_holstein 
 	}
 }
 

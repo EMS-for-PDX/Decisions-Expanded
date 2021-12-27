@@ -28,10 +28,7 @@ found_kingdom_of_oman_decision = {
 	selection_tooltip = found_kingdom_of_oman_decision_tooltip #NEED TO MAKE THIS
 
 	is_shown = {
-		is_ruler = yes
-		is_landed = yes
-		exists = dynasty
-        has_culture_group = culture_group:arabian_group
+		has_culture_group = culture_group:arabic_group
         faith = faith:ibadi
         capital_province = { geographical_region = world_middle_east_arabia }
 		
@@ -41,9 +38,7 @@ found_kingdom_of_oman_decision = {
 				target = flag:flag_founded_kingdom_of_oman #NEED TO MAKE THIS
 			}
 		}
-		OR = {
-			has_government = clan_government
-		}
+		has_government = clan_government
 		highest_held_title_tier = tier_duchy
 	}
 
@@ -161,16 +156,18 @@ restore_saxony_decision = {
 		#You must have Saxon Culture present in the area.
 
 		any_realm_province = { #You must have some realm support for your claims.
-			culture = culture:saxon	
-			culture = culture:anglo_saxon 
-			culture = culture:old_saxon
+			OR = {
+				culture = culture:saxon	
+				culture = culture:anglo_saxon 
+				culture = culture:old_saxon
+			}
 		}
 	}
 
 	is_valid_showing_failures_only = {
 		is_capable_adult = yes
 		is_imprisoned = no
-		is_independent_ruler = no
+		is_independent_ruler = yes
 		is_at_war = no
 	}
 
@@ -179,9 +176,10 @@ restore_saxony_decision = {
 		show_as_tooltip = {
 			restore_saxony_decision_scripted_effect = yes #NEED TO MAKE
 		}
-		trigger_event = {
-			id = cfe_restore_saxony.0001 #NEED TO MAKE
-		}
+		# trigger_event = {
+		# 	id = cfe_restore_saxony.0001 #NEED TO MAKE
+		# }
+		restore_saxony_decision_scripted_effect = yes
 		hidden_effect = {
 			add_to_global_variable_list = { #DO WE HAVE TO MAKE THESE?
 				name = unavailable_unique_decisions
@@ -256,7 +254,7 @@ form_grand_duchy_saxony_decision = {
 		any_held_title = {
 			tier = tier_county
 			OR = {
-				title_province = { geographical_region = custom_saxony }
+				title_province = { geographical_region = custom_grand_saxony }
 			}
 		}
 	}
@@ -266,7 +264,7 @@ form_grand_duchy_saxony_decision = {
 		liege = title:e_hre.holder
 		#Must be suitably prestigious.
 		prestige_level >= high_prestige_level
-		completely_controls_region = custom_saxony
+		completely_controls_region = custom_grand_saxony
 		OR = {
 			custom_description = {
 				text = "form_grand_duchy_saxony_trigger"
@@ -669,7 +667,7 @@ form_the_kingdom_of_leon_decision = {
 	is_shown = {
 		#Can't form Leon if Leon already formed.
 		game_start_date <= 867.1.1
-		highest_held_title_tier <= tier_duchy
+		highest_held_title_tier >= tier_duchy
 
 		#Can't form before culture split.
 		has_culture_group = culture_group:iberian_group
@@ -698,7 +696,7 @@ form_the_kingdom_of_leon_decision = {
 	is_valid_showing_failures_only = {
 		is_capable_adult = yes
 		is_imprisoned = no
-		is_independent_ruler = no
+		is_independent_ruler = yes
 		is_at_war = no
 	}
 
@@ -734,6 +732,7 @@ form_the_kingdom_of_leon_decision = {
 			name = flag_formed_kingdom_of_leon
 			value = root
 		}
+		set_primary_title_to = title:k_leon
 	}
 
 	cost = {
@@ -767,7 +766,7 @@ form_the_kingdom_of_castille_decision = {
 	is_shown = {
 		#Can't form if Castille already formed.
 		game_start_date <= 867.1.1
-		highest_held_title_tier <= tier_duchy
+		highest_held_title_tier >= tier_duchy
 
 		#Can't form until creation of Leon.
 		exists = title:k_leon.holder 
@@ -777,7 +776,7 @@ form_the_kingdom_of_castille_decision = {
 		NOT = {	has_culture = culture:visigothic }
 		any_sub_realm_county = {
 			OR = {
-				target_is_de_jure_liege_or_above = title:d_castille
+				target_is_de_jure_liege_or_above = title:d_castilla
 				target_is_de_jure_liege_or_above = title:d_cantabria
 			}
 		}
@@ -795,20 +794,20 @@ form_the_kingdom_of_castille_decision = {
 			has_primary_title = title:k_asturias
 			has_primary_title = title:k_leon
 		}
-		completely_controls = title:d_castille
+		completely_controls = title:d_castilla
 		completely_controls = title:d_cantabria
 	}
 
 	is_valid_showing_failures_only = {
 		is_capable_adult = yes
 		is_imprisoned = no
-		is_independent_ruler = no
+		is_independent_ruler = yes
 		is_at_war = no
 	}
 
 	effect = {
 		# De jure shifts.
-		title:d_castille = { set_de_jure_liege_title = title:k_castille }
+		title:d_castilla = { set_de_jure_liege_title = title:k_castille }
 		title:d_cantabria = { set_de_jure_liege_title = title:k_castille }
 		hidden_effect = {
 			title:k_aragon = { set_de_jure_liege_title = title:e_spain }
@@ -820,7 +819,7 @@ form_the_kingdom_of_castille_decision = {
 			save_scope_as = change
 			add_claim_on_loss = no
 		}
-		title:k_leon = {
+		title:k_castille = {
 			change_title_holder = {
 				holder = root
 				change = scope:change
@@ -1089,12 +1088,26 @@ form_samos_empire_decision = {
 			has_primary_title = title:k_bohemia
 			completely_controls = title:k_moravia
 		}
+		completely_controls = title:d_nyitra
+		completely_controls = title:d_moravia
+		completely_controls = title:d_osterreich
+		completely_controls = title:d_carinthia
+		completely_controls = title:d_bohemia
+		completely_controls = title:d_meissen
+		completely_controls = title:d_lausitz
+		completely_controls = title:d_steyermark
+		completely_controls = title:d_upper_silesia
+		completely_controls = title:d_gyor
+		completely_controls = title:d_somogy
+		completely_controls = title:c_esztergom
+		completely_controls = title:c_komarom
+		completely_controls = title:c_szekesfehervar
 	}
 
 	is_valid_showing_failures_only = {
 		is_capable_adult = yes
 		is_imprisoned = no
-		is_independent_ruler = no
+		is_independent_ruler = yes
 		is_at_war = no
 	}
 	
