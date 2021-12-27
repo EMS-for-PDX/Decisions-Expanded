@@ -1,0 +1,1128 @@
+﻿###DECISIONS LIST###
+
+#decision_found_kingdom_of_oman (MENA Flavor)
+#decision_found_kingdom_of_old_saxony (HRE Flavor)
+#decision_form_grand_duchy_saxony (HRE Flavor)
+#decision_form_grand_duchy_franconia (HRE Flavor)
+#decision_form_grand_duchy_swabia (HRE Flavor)
+#decision_form_bulgarian_empire (Bulgarian Flavor)
+#decision_form_kingdom_of_leon (Iberian Flavor)
+#decision_form_kingdom_of_castille (Iberian Flavor)
+#decision_form_avar_khaganate (Avar Flavor)
+#decision_integrate_aquitaine (Carolingian Flavor)
+#decision_restore_aquitaine (Carolingian Flavor) # NEED GUIDANCE ON HOW TO CODE THIS REVERSAL
+#decision_form_samos_empire (Czech-Slovien Flavor)
+
+##############################
+# Found the Kingdom of Oman	 #
+# by Celticus Magnus	     #
+##############################
+found_kingdom_of_oman_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	major = yes
+	ai_goal = yes
+
+	ai_check_interval = 120
+
+	desc = found_kingdom_of_oman_decision_desc #NEED TO MAKE THIS
+	selection_tooltip = found_kingdom_of_oman_decision_tooltip #NEED TO MAKE THIS
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		exists = dynasty
+        has_culture_group = culture_group:arabian_group
+        faith = faith:ibadi
+        capital_province = { geographical_region = world_middle_east_arabia }
+		
+		NOT = {	#You can only do it once.
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_founded_kingdom_of_oman #NEED TO MAKE THIS
+			}
+		}
+		OR = {
+			has_government = clan_government
+		}
+		highest_held_title_tier = tier_duchy
+	}
+
+	is_valid = {
+		#You must have sufficient clout.
+		is_independent_ruler = yes
+        prestige_level >= high_prestige_level
+        piety_level >= high_piety_level
+
+        #You must be of the Ibadi Faith
+        faith = faith:ibadi
+
+		#You must control the kingdom's heartlands.
+		has_title = title:d_oman
+		has_title = title:c_dhofar
+		completely_controls = title:d_oman
+		completely_controls = title:c_dhofar
+
+		#You must be sufficiently advanced to unite the various tribes and peoples of your land under a formalized kingdom.
+		culture = { has_cultural_era_or_later = culture_era_early_medieval }
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = no
+		is_at_war = no
+	}
+
+	effect = {
+		save_scope_as = founder
+		show_as_tooltip = {
+			found_kingdom_of_oman_decision_scripted_effect = yes # HAVE TO MAKE
+		}
+		trigger_event = {
+			id = cfe_found_oman.0001 # HAVE TO MAKE
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_founded_kingdom_of_oman # DO WE HAVE TO MAKE THESE?
+			}
+			set_global_variable = {
+				name = flag_founded_kingdom_of_oman
+				value = root
+			}
+		}
+	}
+
+	cost = {
+		gold = 200
+		prestige = 300
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}
+
+#####################################
+# Restore the Kingdom of Old Saxony	#
+# by Celticus Magnus			    #
+#####################################
+restore_saxony_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	major = yes
+	ai_goal = yes
+
+	ai_check_interval = 120
+
+	desc = restore_saxony_decision_desc # NEED TO LOCALIZE 
+	selection_tooltip = restore_saxony_decision_tooltip # NEED TO LOCALIZE
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		exists = dynasty # Everyone should have a dynasty, but in case they don't...
+		capital_province = { geographical_region = ghw_region_germany } #Will not be visible unless you are based in Germany.
+		OR = {
+			culture = culture:saxon	#We will allow all Saxons to make use if they are in the region.
+			culture = culture:anglo_saxon 
+			culture = culture:old_saxon
+		}
+		NOT = {	#You can only do it once.
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_restored_saxony
+			}
+		}
+		OR = {	
+			has_government = feudal_government
+		}
+		highest_held_title_tier <= tier_duchy
+	}
+
+	is_valid = {
+		#You must have sufficient clout.
+		is_independent_ruler = yes
+		prestige_level >= high_prestige_level
+
+		#You must be a Duke in the region and own Old Saxony's de jure lands.
+		OR = {	
+			has_title = title:d_holstein
+			has_title = title:d_ostfalen
+			has_title = title:d_angria
+			has_title = title:d_westfalen
+			has_title = title:d_anhalt
+		}
+		completely_controls_region = custom_saxony
+
+		#You must have Saxon Culture present in the area.
+
+		any_realm_province = { #You must have some realm support for your claims.
+			culture = culture:saxon	
+			culture = culture:anglo_saxon 
+			culture = culture:old_saxon
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = no
+		is_at_war = no
+	}
+
+	effect = {
+		save_scope_as = founder
+		show_as_tooltip = {
+			restore_saxony_decision_scripted_effect = yes #NEED TO MAKE
+		}
+		trigger_event = {
+			id = cfe_restore_saxony.0001 #NEED TO MAKE
+		}
+		hidden_effect = {
+			add_to_global_variable_list = { #DO WE HAVE TO MAKE THESE?
+				name = unavailable_unique_decisions
+				target = flag:flag_restored_saxony
+			}
+			set_global_variable = {
+				name = flag_restored_saxony
+				value = root
+			}
+		}
+	}
+
+	cost = {
+		gold = 200
+		prestige = 300
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}
+
+#####################################
+# Form the Grand Duchy of Saxony 	#
+# by Celticus Magnus			    #
+#####################################
+form_grand_duchy_saxony_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = yes
+	ai_goal = yes
+
+	ai_check_interval = 120
+
+	desc = form_grand_duchy_saxony_decision_desc # NEED TO LOCALIZE 
+	selection_tooltip = form_grand_duchy_saxony_decision_tooltip # NEED TO LOCALIZE
+	major = yes
+
+	is_shown = {
+		is_landed = yes
+		OR = {
+			#Must be a German within the HRE...
+			culture_group = culture_group:central_germanic_group
+			#...*unless* you are a bonified member of the Saxon cultures.
+			culture = culture:saxon	
+			culture = culture:anglo_saxon 
+			culture = culture:old_saxon
+		}
+		#The Kingdom of Saxony must not exist.
+		NOT = { exists = title:k_saxony.holder }
+		OR = {
+			#No kings or emperors...
+			AND = {
+				highest_held_title_tier <= tier_duchy
+				is_independent_ruler = no
+			}
+			#... *unless* you hold the HRE itself.
+			has_title = title:e_hre
+		}
+		NOT = {	#You can only do it once.
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_formed_grand_duchy_saxony
+			}
+		}
+		#Must be within the HRE, else the bid & flavour make no sense.
+		top_liege = { has_title = title:e_hre }
+		#Must hold land within the relevant areas directly.
+		any_held_title = {
+			tier = tier_county
+			OR = {
+				title_province = { geographical_region = custom_saxony }
+			}
+		}
+	}
+
+	is_valid = {
+		#Must enjoy imperial immediacy.
+		liege = title:e_hre.holder
+		#Must be suitably prestigious.
+		prestige_level >= high_prestige_level
+		completely_controls_region = custom_saxony
+		OR = {
+			custom_description = {
+				text = "form_grand_duchy_saxony_trigger"
+				dynasty = title:e_hre.holder.dynasty
+			}
+			has_strong_usable_hook = title:e_hre.holder
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_at_war = no
+		faith = top_liege.faith	#Must share the faith of your emperor.
+	}
+
+	effect = {
+		save_scope_as = founder
+		show_as_tooltip = {
+			form_grand_duchy_saxony_decision_scripted_effect = yes #NEED TO MAKE
+		}
+		trigger_event = {
+			id = cfe_form_grand_duchy_saxony.0001 #NEED TO MAKE
+		}
+		hidden_effect = {
+			add_to_global_variable_list = { #DO WE HAVE TO MAKE THESE?
+				name = unavailable_unique_decisions
+				target = flag:flag_formed_grand_duchy_saxony
+			}
+			set_global_variable = {
+				name = flag_formed_grand_duchy_saxony
+				value = root
+			}
+		}
+	}
+
+	cost = {
+		gold = 500
+		prestige = 1000
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 0
+
+		#Only worth considering if you actually have your capital in Austria.		
+		modifier = {
+			add = 100
+			capital_county.title_province = { geographical_region = custom_saxony }
+		}
+
+		#More brazen characters are more likely to have a bash.
+		ai_value_modifier = {
+			ai_boldness = 0.75
+			ai_greed = 0.25
+		}
+	}
+}
+
+#####################################
+# Form the Grand Duchy of Franconia #
+# by Celticus Magnus			    #
+#####################################
+form_grand_duchy_franconia_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = yes
+	ai_goal = yes
+
+	ai_check_interval = 120
+
+	desc = form_grand_duchy_franconia_decision_desc # NEED TO LOCALIZE 
+	selection_tooltip = form_grand_duchy_franconia_decision_tooltip # NEED TO LOCALIZE
+	major = yes
+
+	is_shown = {
+		is_landed = yes
+		OR = {
+			#Must be a German within the HRE...
+			culture_group = culture_group:central_germanic_group
+		}
+		OR = {
+			#No kings or emperors...
+			AND = {
+				highest_held_title_tier <= tier_duchy
+				is_independent_ruler = no
+			}
+			#... *unless* you hold the HRE itself.
+			has_title = title:e_hre
+		}
+		NOR = {	#Can't form if you already own Kingdom of Germany. While the Emperor can found the Stem Duchy if they wish, Franconia should only exist if a Vassal usurps the area or Germany was destroyed.
+			has_title = title:k_east_francia		
+		}	
+		NOT = {	#You can only do it once.
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_formed_grand_duchy_franconia
+			}
+		}
+		#Must be within the HRE, else the bid & flavour make no sense.
+		top_liege = { has_title = title:e_hre }
+		#Must hold land within the relevant areas directly.
+		any_held_title = {
+			tier = tier_county
+			OR = {
+				title_province = { geographical_region = custom_core_franconia }
+			}
+		}
+	}
+
+	is_valid = {
+		#Must enjoy imperial immediacy.
+		liege = title:e_hre.holder
+		#Must be suitably prestigious.
+		prestige_level >= high_prestige_level
+		completely_controls_region = custom_core_franconia
+		OR = {
+			custom_description = {
+				text = "form_grand_duchy_franconia_trigger"
+				dynasty = title:e_hre.holder.dynasty
+			}
+			has_strong_usable_hook = title:e_hre.holder
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_at_war = no
+		faith = top_liege.faith	#Must share the faith of your emperor.
+	}
+
+	effect = {
+		save_scope_as = founder
+		show_as_tooltip = {
+			form_grand_duchy_franconia_decision_scripted_effect = yes #NEED TO MAKE
+		}
+		trigger_event = {
+			id = cfe_form_grand_duchy_franconia.0001 #NEED TO MAKE
+		}
+		hidden_effect = {
+			add_to_global_variable_list = { #DO WE HAVE TO MAKE THESE?
+				name = unavailable_unique_decisions
+				target = flag:flag_formed_grand_duchy_franconia
+			}
+			set_global_variable = {
+				name = flag_formed_grand_duchy_franconia
+				value = root
+			}
+		}
+	}
+
+	cost = {
+		gold = 500
+		prestige = 1000
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 0
+
+		#Only worth considering if you actually have your capital in Austria.		
+		modifier = {
+			add = 100
+			capital_county.title_province = { geographical_region = custom_core_franconia }
+		}
+
+		#More brazen characters are more likely to have a bash.
+		ai_value_modifier = {
+			ai_boldness = 0.75
+			ai_greed = 0.25
+		}
+	}
+}
+
+#####################################
+# Form the Grand Duchy of Swabia    #
+# by Celticus Magnus			    #
+#####################################
+form_grand_duchy_swabia_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = yes
+	ai_goal = yes
+
+	ai_check_interval = 120
+
+	desc = form_grand_duchy_swabia_decision_desc # NEED TO LOCALIZE 
+	selection_tooltip = form_grand_duchy_swabia_decision_tooltip # NEED TO LOCALIZE
+	major = yes
+
+	is_shown = {
+		is_landed = yes
+		OR = {
+			#Must be a German within the HRE...
+			culture_group = culture_group:central_germanic_group
+		}
+		OR = {
+			#No kings or emperors...
+			AND = {
+				highest_held_title_tier <= tier_duchy
+				is_independent_ruler = no
+			}
+			#... *unless* you hold the HRE itself.
+			has_title = title:e_hre
+		}
+		NOT = {	#You can only do it once.
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_formed_grand_duchy_swabia
+			}
+		}
+		#Must be within the HRE, else the bid & flavour make no sense.
+		top_liege = { has_title = title:e_hre }
+		#Must hold land within the relevant areas directly.
+		any_held_title = {
+			tier = tier_county
+			OR = {
+				title_province = { geographical_region = custom_core_swabia }
+			}
+		}
+	}
+
+	is_valid = {
+		#Must enjoy imperial immediacy.
+		liege = title:e_hre.holder
+		#Must be suitably prestigious.
+		prestige_level >= high_prestige_level
+		completely_controls_region = custom_core_swabia
+		OR = {
+			custom_description = {
+				text = "form_grand_duchy_swabia_trigger"
+				dynasty = title:e_hre.holder.dynasty
+			}
+			has_strong_usable_hook = title:e_hre.holder
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_at_war = no
+		faith = top_liege.faith	#Must share the faith of your emperor.
+	}
+
+	effect = {
+		save_scope_as = founder
+		show_as_tooltip = {
+			form_grand_duchy_swabia_decision_scripted_effect = yes #NEED TO MAKE
+		}
+		trigger_event = {
+			id = cfe_form_grand_duchy_swabia.0001 #NEED TO MAKE
+		}
+		hidden_effect = {
+			add_to_global_variable_list = { #DO WE HAVE TO MAKE THESE?
+				name = unavailable_unique_decisions
+				target = flag:flag_formed_grand_duchy_swabia
+			}
+			set_global_variable = {
+				name = flag_formed_grand_duchy_swabia
+				value = root
+			}
+		}
+	}
+
+	cost = {
+		gold = 500
+		prestige = 1000
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 0
+
+		#Only worth considering if you actually have your capital in Austria.		
+		modifier = {
+			add = 100
+			capital_county.title_province = { geographical_region = custom_core_swabia }
+		}
+
+		#More brazen characters are more likely to have a bash.
+		ai_value_modifier = {
+			ai_boldness = 0.75
+			ai_greed = 0.25
+		}
+	}
+}
+
+#####################################
+# Form the Bulgarian Empire	        #
+# by Celticus Magnus			    #
+#####################################
+
+form_bulgarian_empire_decision = { 
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	major = yes
+	ai_goal = yes
+
+	desc = form_bulgarian_empire_decision_desc # NEED TO LOCALIZE 
+	selection_tooltip = form_bulgarian_empire_decision_tooltip # NEED TO LOCALIZE
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		exists = dynasty # Everyone should have a dynasty, but in case they don't...
+		has_culture = culture:bulgarian	
+		capital_province = { geographical_region = custom_south_slavia } #Will not be visible unless you are based in South Slavia.
+		highest_held_title_tier >= tier_kingdom
+		OR = {	
+			has_government = feudal_government
+		}
+		NOT = {  #Can only do it once.
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_bulgarian_empire_decision
+			}
+		}		
+		NOR = {	#Can't form if you already hold an Empire title.
+			has_title = title:e_byzantium		
+			has_title = title:e_hre
+			has_title = title:e_carpathia
+			highest_held_title_tier = tier_empire
+		}		
+	}	
+
+	is_valid = {
+		#You must have sufficient clout.
+		is_independent_ruler = yes
+        prestige_level >= high_prestige_level
+
+        #You must be Christian
+
+		religion = religion:christianity_religion
+		
+		#You must rule Bulgaria
+
+		has_primary_title = title:k_bulgaria	
+		completely_controls = title:k_bulgaria
+		completely_controls = title:k_dacia
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = no
+		is_at_war = no
+	}
+	
+	cost = {
+		gold = 500
+		prestige = 1000
+	}	
+
+	effect = {
+		show_as_tooltip = {
+			form_bulgarian_empire_decision_effect = yes # DO WE NEED TO MAKE?
+		}
+		trigger_event = {
+			id = cfe_form_bulgarian_empire.0001 # NEED TO MAKE
+		}		
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_bulgarian_empire_decision # DO WE NEED TO MAKE DIS?
+			}
+		}		
+	}
+	
+	ai_potential = {
+		is_ruler = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}
+
+##############################
+# Form the Kingdom of Leon   #
+# by Celticus Magnus	     #
+##############################
+
+form_the_kingdom_of_leon_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = yes
+	ai_goal = yes
+
+	ai_check_interval = 120
+
+	desc = form_the_kingdom_of_leon_decision_desc
+	selection_tooltip = form_the_kingdom_of_leon_decision_tooltip
+
+	is_shown = {
+		#Can't form Leon if Leon already formed.
+		game_start_date <= 867.1.1
+		highest_held_title_tier <= tier_duchy
+
+		#Can't form before culture split.
+		has_culture_group = culture_group:iberian_group
+		NOT = {	has_culture = culture:visigothic }
+		any_sub_realm_county = {
+			OR = {
+				target_is_de_jure_liege_or_above = title:d_leon
+				target_is_de_jure_liege_or_above = title:d_asturias
+			}
+		}
+		NOT = {	
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_formed_kingdom_of_leon
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		has_primary_title = title:k_asturias
+		completely_controls = title:d_leon
+		completely_controls = title:d_asturias
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = no
+		is_at_war = no
+	}
+
+	effect = {
+		# De jure shifts.
+		title:d_leon = { set_de_jure_liege_title = title:k_leon }
+		title:d_asturias = { set_de_jure_liege_title = title:k_leon }
+		hidden_effect = {
+			title:k_aragon = { set_de_jure_liege_title = title:e_spain }
+		}
+
+		# Create kingdom title.
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:k_leon = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		add_prestige = major_prestige_gain
+
+		#Once per game
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:flag_formed_kingdom_of_leon
+		}
+		set_global_variable = {
+			name = flag_formed_kingdom_of_leon
+			value = root
+		}
+	}
+
+	cost = {
+		gold = 200
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}
+
+##################################
+# Form the Kingdom of Castille   #
+# by Celticus Magnus			 #
+##################################
+
+form_the_kingdom_of_castille_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = yes
+	ai_goal = yes
+
+	ai_check_interval = 120
+
+	desc = form_the_kingdom_of_castille_decision_desc
+	selection_tooltip = form_the_kingdom_of_castille_decision_tooltip
+
+	is_shown = {
+		#Can't form if Castille already formed.
+		game_start_date <= 867.1.1
+		highest_held_title_tier <= tier_duchy
+
+		#Can't form until creation of Leon.
+		exists = title:k_leon.holder 
+
+		#Can't form before culture split.
+		has_culture_group = culture_group:iberian_group
+		NOT = {	has_culture = culture:visigothic }
+		any_sub_realm_county = {
+			OR = {
+				target_is_de_jure_liege_or_above = title:d_castille
+				target_is_de_jure_liege_or_above = title:d_cantabria
+			}
+		}
+		NOT = {	
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_formed_kingdom_of_castille
+			}
+		}
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		OR = {
+			has_primary_title = title:k_asturias
+			has_primary_title = title:k_leon
+		}
+		completely_controls = title:d_castille
+		completely_controls = title:d_cantabria
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = no
+		is_at_war = no
+	}
+
+	effect = {
+		# De jure shifts.
+		title:d_castille = { set_de_jure_liege_title = title:k_castille }
+		title:d_cantabria = { set_de_jure_liege_title = title:k_castille }
+		hidden_effect = {
+			title:k_aragon = { set_de_jure_liege_title = title:e_spain }
+		}
+
+		# Create kingdom title.
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		title:k_leon = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		add_prestige = major_prestige_gain
+		
+		# Destroys remnants of Asturias.
+		destroy_title = title:k_asturias
+
+		#Once per game
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:flag_formed_kingdom_of_castille
+		}
+		set_global_variable = {
+			name = flag_formed_kingdom_of_castille
+			value = root
+		}
+	}
+
+	cost = {
+		gold = 200
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}
+
+#####################################
+# Reform the Avar Khaganate	        #
+# by Celticus Magnus			    #
+#####################################
+
+form_avar_khaganate_decision = { 
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	major = yes
+	ai_goal = yes
+
+	desc = form_avar_khaganate_decision_desc # NEED TO LOCALIZE 
+	selection_tooltip = form_avar_khaganate_decision_tooltip # NEED TO LOCALIZE
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		exists = dynasty # Everyone should have a dynasty, but in case they don't...
+		has_culture = culture:avar	
+		capital_province = { geographical_region = ghw_region_hungary } #Will not be visible unless you are based in Pannonia or its vicinity.
+		highest_held_title_tier >= tier_kingdom
+		OR = {	
+			has_government = feudal_government
+			has_government = tribal_government
+		}
+		NOT = {  #Can only do it once.
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_avar_khaganate_decision
+			}
+		}		
+		NOR = {	#Can't form if you already hold an Empire title.
+			has_title = title:e_byzantium		
+			has_title = title:e_hre
+			has_title = title:e_carpathia
+			highest_held_title_tier = tier_empire
+		}		
+	}	
+
+	is_valid = {
+		#You must have sufficient clout.
+		is_independent_ruler = yes
+        prestige_level >= high_prestige_level
+	
+		#You must rule Pannonia and control the Avar Khaganates former realms.
+		has_primary_title = title:k_hungary	
+		completely_controls_region = custom_avaria
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = no
+		is_at_war = no
+	}
+	
+	cost = {
+		gold = 500
+		prestige = 1000
+	}	
+
+	effect = {
+		show_as_tooltip = {
+			form_avar_khaganate_decision_effect = yes # DO WE NEED TO MAKE?
+		}
+		trigger_event = {
+			id = cfe_form_avar_khaganate.0001 # NEED TO MAKE
+		}		
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_avar_khaganate_decision # DO WE NEED TO MAKE DIS?
+			}
+		}		
+	}
+	
+	ai_potential = {
+		is_ruler = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}
+
+######################################
+# Integrate the Kingdom of Aquitaine #       
+# by Celticus Magnus			     #
+######################################
+integrate_aquitaine_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+
+	desc = integrate_aquitaine_decision_desc
+	selection_tooltip = integrate_aquitaine_decision_tooltip
+	major = yes
+	ai_goal = yes
+
+	is_shown = {
+		has_culture = culture:french
+		is_ruler = yes
+		is_landed = yes
+		NOT = {  #Can only do it once.
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_integrated_aquitaine
+			}
+		}
+		OR = {
+			has_title = title:k_france
+			has_title = title:e_france
+		}
+		exists = title:k_aquitaine.holder #Must exist in the first place...
+		capital_province = { geographical_region = ghw_region_france }
+	}
+	
+	is_valid = {
+		is_independent_ruler = yes
+		prestige_level >= high_prestige_level
+		#Has ruled each kingdom for a very long time.
+		title:k_france = { title_held_years >= 15 }
+		title:k_aquitaine = { title_held_years >= 15 }
+		completely_controls_region = custom_south_francia
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = no
+		is_at_war = no
+	}
+
+	cost = {
+		gold = 250
+		prestige = 500
+	}	
+
+	effect = {
+		# De jure shifts.
+		title:d_gascogne = { set_de_jure_liege_title = title:k_france }
+		title:d_aquitaine = { set_de_jure_liege_title = title:k_france }
+		title:d_toulouse = { set_de_jure_liege_title = title:k_france }
+		title:d_languedoc = { set_de_jure_liege_title = title:k_france }
+		title:d_armagnac = { set_de_jure_liege_title = title:k_france }
+		title:d_poitou = { set_de_jure_liege_title = title:k_france }
+		title:d_auvergne = { set_de_jure_liege_title = title:k_france }
+		title:d_bourbon = { set_de_jure_liege_title = title:k_france }
+		
+		# Destroys the the Kingdom of Aquitaine. DO I NEED TO DO AN IF STATEMENT FOR IF IT DOES OR DOES NOT EXIST?
+		destroy_title = title:k_aquitaine
+		
+		resolve_title_and_vassal_change = scope:change #DO I NEED THIS?
+		add_prestige = major_prestige_gain #DO I NEED THIS?
+
+		#Once per game
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:flag_integrated_aquitaine
+		}
+		set_global_variable = {
+			name = flag_integrated_aquitaine
+			value = root
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+		ai_value_modifier = {
+			ai_boldness = 1.0
+		}
+	}
+}
+
+#####################################
+# Reform Samo's Empire	            #
+# by Celticus Magnus			    #
+#####################################
+
+form_samos_empire_decision = { 
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	major = yes
+	ai_goal = yes
+
+	desc = form_samos_empire_decision_desc # NEED TO LOCALIZE 
+	selection_tooltip = form_samos_empire_decision_tooltip # NEED TO LOCALIZE
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		exists = dynasty # Everyone should have a dynasty, but in case they don't...
+		OR = {
+			has_culture = culture:slovien
+			has_culture = culture:czech	
+		}
+		capital_province = { geographical_region = ghw_region_poland_bohemia_bavaria } #Will not be visible unless you are based in the area of Samo's Empire.
+		highest_held_title_tier >= tier_kingdom
+		OR = {	
+			has_government = feudal_government
+			has_government = tribal_government
+		}
+		NOT = {  #Can only do it once.
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_samos_empire_decision
+			}
+		}		
+		NOR = {	#Can't form if you already hold an Empire title.
+			has_title = title:e_germania
+			has_title = title:e_wendish_empire
+			has_title = title:e_carpathia
+			highest_held_title_tier = tier_empire
+		}		
+	}	
+
+	is_valid = {
+		#You must have sufficient clout.
+		is_independent_ruler = yes
+        prestige_level >= high_prestige_level
+
+        #You must be Christian or old Slavic Pagan
+		OR = {
+			religion = religion:christianity_religion
+			religion = religion:slavic_religion
+		}
+
+		#You must rule Moravia or Bohemia and posess the former realms held by Samos
+		OR = {
+			has_primary_title = title:k_moravia
+			has_primary_title = title:k_bohemia
+			completely_controls = title:k_moravia
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = no
+		is_at_war = no
+	}
+	
+	cost = {
+		gold = 300
+		prestige = 750
+	}	
+
+	effect = {
+		show_as_tooltip = {
+			form_samos_empire_decision_effect = yes # DO WE NEED TO MAKE?
+		}
+		trigger_event = {
+			id = cfe_form_samos_empire.0001 # NEED TO MAKE
+		}		
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:form_samos_empire_decision # DO WE NEED TO MAKE DIS?
+			}
+		}		
+	}
+	
+	ai_potential = {
+		is_ruler = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}
