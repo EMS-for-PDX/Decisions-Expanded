@@ -881,7 +881,6 @@ form_avar_khaganate_decision = {
 		capital_province = { geographical_region = ghw_region_hungary } #Will not be visible unless you are based in Pannonia or its vicinity.
 		highest_held_title_tier >= tier_kingdom
 		OR = {	
-			has_government = feudal_government
 			has_government = tribal_government
 		}
 		NOT = {  #Can only do it once.
@@ -901,7 +900,7 @@ form_avar_khaganate_decision = {
 	is_valid = {
 		#You must have sufficient clout.
 		is_independent_ruler = yes
-        prestige_level >= high_prestige_level
+        prestige_level >= very_high_prestige_level
 	
 		#You must rule Pannonia and control the Avar Khaganates former realms.
 		has_primary_title = title:k_hungary	
