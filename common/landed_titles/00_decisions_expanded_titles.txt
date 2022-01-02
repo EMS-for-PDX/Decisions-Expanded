@@ -1,4 +1,18 @@
-﻿k_grand_saxony = {
+﻿e_bulgaria_empire = {
+	color = { 113 88 101 }
+	color2 = { 255 255 255 }
+
+	capital = c_turnovo
+}
+
+e_avar_khanagnate = {
+	color = { 250 120 90 }
+	color2 = { 255 255 255 }
+	definite_form = yes
+	capital	= c_visegrad
+}
+
+k_grand_saxony = {
 	color = { 205 105 85 }
 	color2 = { 255 255 255 }
 
@@ -18,3 +32,4 @@ k_grand_swabia = {
 
     capital = c_ulm
 }
+
