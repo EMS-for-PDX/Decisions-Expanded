@@ -879,7 +879,7 @@ form_avar_khaganate_decision = {
 		exists = dynasty # Everyone should have a dynasty, but in case they don't...
 		has_culture = culture:avar	
 		capital_province = { geographical_region = ghw_region_hungary } #Will not be visible unless you are based in Pannonia or its vicinity.
-		highest_held_title_tier >= tier_kingdom
+		highest_held_title_tier >= tier_duchy
 		OR = {	
 			has_government = tribal_government
 		}
@@ -901,7 +901,7 @@ form_avar_khaganate_decision = {
 		#You must have sufficient clout.
 		is_independent_ruler = yes
         prestige_level >= very_high_prestige_level
-	
+		highest_held_title_tier >= tier_kingdom
 		#You must rule Pannonia and control the Avar Khaganates former realms.
 		has_primary_title = title:k_hungary	
 		completely_controls_region = custom_avaria
@@ -1033,6 +1033,10 @@ integrate_aquitaine_decision = {
 			ai_boldness = 1.0
 		}
 	}
+}
+
+decision_restore_aquitaine = {
+
 }
 
 #####################################

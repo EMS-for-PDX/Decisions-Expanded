@@ -1,0 +1,97 @@
+﻿# Geographical regions
+# Regions can be declared with one or more of the following fields:
+#	duchies = { }, takes duchy title names declared in landed_titles.txt
+#	counties = { }, takes county title names declared in landed_titles.txt
+#	provinces = { }, takes province id numbers declared in /history/provinces
+#	regions = { }, a region can also include other regions, however the subregions needs to be declared before the parent region. 
+#		E.g. If the region world_europe contains the region world_europe_west then world_europe_west needs to be declared as a region before (i.e. higher up in this file) world_europe.
+
+custom_core_franconia = {
+	duchies = {
+		#k_east_francia
+		d_east_franconia d_west_franconia d_hesse d_thuringia
+	}
+}
+
+custom_core_swabia = {
+	duchies = {
+		#k_swabia
+		d_currezia d_alsace d_swabia d_augsburg
+	}
+}
+
+custom_grand_saxony = {
+	duchies = {
+		#Saxony
+		d_anhalt d_angria d_westfalen d_ostfalen d_meissen d_lausitz d_holstein 
+	}
+}
+
+custom_saxony = {
+	duchies = {
+		#Saxony
+		d_anhalt d_angria d_westfalen d_ostfalen d_holstein 
+	}
+}
+custom_avaria = { 
+	duchies = { 
+		#Hungary (Pannonia)
+		d_visegrad d_somogy d_nyitra d_ungvar d_transcarpathia d_transylvania d_bihar d_temes d_bacs d_gyor d_syrmia
+		#Dacia
+		d_transylvanian_alps d_muntenia d_oltenia 
+		#Moldavia
+		d_bukovina d_moldova d_bugeac
+		# k_pontic_steppe
+		d_yedisan d_levedia d_don_valley d_crimea
+		#k_bavaria (Avar Controlled)
+		d_osterreich d_steyermark d_krain
+		# Avar Bohemia
+		d_bohemia d_moravia 
+		#Avar Croatia
+		d_slavonia d_lower_bosna
+	}
+}
+custom_yemen = {
+	duchies = {
+		d_sanaa d_jawf-al-yamani d_taizz d_hadramawt d_mahra d_socotra
+	}
+}
+custom_persian_gulf = {
+	duchies = {
+		d_oman d_bahrain d_al-hasa 
+	}
+}
+custom_persian_caucasus = {
+	duchies = {
+		#Iberia
+		d_tao-klarjeti d_georgia
+		#Armenia
+		d_mesopotamia d_vaspurakan d_greater_armenia
+	}
+}
+custom_egypt = {
+	duchies = {
+		d_alexandria d_delta d_cairo d_al-said d_sinai
+	}
+}
+special_seljuk_empire_start_region = {
+	duchies = {
+		d_merv d_nasa d_herat d_nishapur d_gurgan d_ghur
+	}
+}
+special_seljuk_empire_cb_extent = {
+	duchies = {
+		d_opsikion d_ephese d_thracesia d_optimatoi d_bucellaria d_cilicia d_cibyrrhaeot d_anatolia d_cappadocia d_charsianon d_paphlagonia d_armeniac d_sebasteia d_chaldia d_mesopotamia d_vaspurakan d_greater_armenia d_tao-klarjeti d_abkhazia d_georgia d_isfahan	d_kirman d_yazd d_rayy d_hamadan d_fars d_hormuz d_khuzestan d_kermanshah d_nishapur d_merv d_ghur d_herat d_balkh d_nasa d_kohestan d_daylam d_tabaristan d_gurgan d_azerbaijan d_shirvan d_makran d_jabal_kufs d_sistan d_kabul d_zabulistan d_samarra d_wasit d_kufa d_basra	d_baghdad d_diyarrabia d_diyarmudar d_diyarbakr d_euphrates d_kurdistan
+	}
+}
+
+special_seljuk_empire_borderlands = {
+	duchies = {
+		d_diyarrabia d_diyarmudar d_euphrates d_daylam d_tabaristan d_gurgan d_azerbaijan d_samarra d_kurdistan d_wasit d_kufa d_basra d_baghdad d_isfahan d_kirman d_yazd d_rayy d_hamadan d_fars d_hormuz d_khuzestan d_kermanshah 
+	}
+}
+
+wendish_empire = {
+	# Wendish Lands
+	d_mazovia d_upper_silesia d_lower_silesia d_lesser_poland d_wielkopolska d_kuyavia d_livonia d_prussia d_masuria d_grodno d_pinsk d_minsk d_polotsk d_smolensk d_lithuanians d_courland d_latgalians d_samogitia d_pommerania d_nordmark d_pomerelia d_ostmark
+}
