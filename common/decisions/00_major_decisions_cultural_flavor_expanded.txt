@@ -71,13 +71,13 @@ found_kingdom_of_oman_decision = {
 	effect = {
 		save_scope_as = founder
 		show_as_tooltip = {
-			found_kingdom_of_oman_decision_scripted_effect = yes # HAVE TO MAKE
+			found_kingdom_of_oman_scripted_effect = yes # HAVE TO MAKE
 		}
 		# trigger_event = {
 		# 	id = cfe_found_oman.0001 # HAVE TO MAKE
 		# }
 		hidden_effect = {
-			found_kingdom_of_oman_decision_scripted_effect = yes
+			found_kingdom_of_oman_scripted_effect = yes
 			add_to_global_variable_list = {
 				name = unavailable_unique_decisions
 				target = flag:flag_founded_kingdom_of_oman # DO WE HAVE TO MAKE THESE?
@@ -186,8 +186,8 @@ restore_saxony_decision = {
 		# trigger_event = {
 		# 	id = cfe_restore_saxony.0001 #NEED TO MAKE
 		# }
-		restore_saxony_decision_scripted_effect = yes
 		hidden_effect = {
+			restore_saxony_decision_scripted_effect = yes
 			add_to_global_variable_list = { #DO WE HAVE TO MAKE THESE?
 				name = unavailable_unique_decisions
 				target = flag:flag_restored_saxony
@@ -232,7 +232,7 @@ form_grand_duchy_saxony_decision = {
 		is_landed = yes
 		OR = {
 			#Must be a German within the HRE...
-			culture_group = culture_group:central_germanic_group
+			culture = { has_cultural_pillar = heritage_central_germanic }
 			#...*unless* you are a bonified member of the Saxon cultures.
 			culture = culture:saxon	
 			culture = culture:anglo_saxon 
@@ -355,7 +355,7 @@ form_grand_duchy_franconia_decision = {
 		is_landed = yes
 		OR = {
 			#Must be a German within the HRE...
-			culture_group = culture_group:central_germanic_group
+			culture = { has_cultural_pillar = heritage_central_germanic }
 		}
 		OR = {
 			#No kings or emperors...
@@ -375,9 +375,9 @@ form_grand_duchy_franconia_decision = {
 				target = flag:flag_formed_grand_duchy_franconia
 			}
 		}
-		#Must be within the HRE, else the bid & flavour make no sense.
+		# #Must be within the HRE, else the bid & flavour make no sense.
 		top_liege = { has_title = title:e_hre }
-		#Must hold land within the relevant areas directly.
+		# #Must hold land within the relevant areas directly.
 		any_held_title = {
 			tier = tier_county
 			OR = {
@@ -410,11 +410,11 @@ form_grand_duchy_franconia_decision = {
 		show_as_tooltip = {
 			form_grand_duchy_franconia_decision_scripted_effect = yes #NEED TO MAKE
 		}
-		form_grand_duchy_franconia_decision_scripted_effect = yes
 		# trigger_event = {
 		# 	id = cfe_form_grand_duchy_franconia.0001 #NEED TO MAKE
 		# }
 		hidden_effect = {
+			form_grand_duchy_franconia_decision_scripted_effect = yes
 			add_to_global_variable_list = { #DO WE HAVE TO MAKE THESE?
 				name = unavailable_unique_decisions
 				target = flag:flag_formed_grand_duchy_franconia
@@ -471,7 +471,7 @@ form_grand_duchy_swabia_decision = {
 		is_landed = yes
 		OR = {
 			#Must be a German within the HRE...
-			culture_group = culture_group:central_germanic_group
+			culture = { has_cultural_pillar = heritage_central_germanic }
 		}
 		OR = {
 			#No kings or emperors...
@@ -523,11 +523,11 @@ form_grand_duchy_swabia_decision = {
 		show_as_tooltip = {
 			form_grand_duchy_swabia_decision_scripted_effect = yes #NEED TO MAKE
 		}
-		form_grand_duchy_swabia_decision_scripted_effect = yes
 		# trigger_event = {
 		# 	id = cfe_form_grand_duchy_swabia.0001 #NEED TO MAKE
 		# }
 		hidden_effect = {
+			form_grand_duchy_swabia_decision_scripted_effect = yes
 			add_to_global_variable_list = { #DO WE HAVE TO MAKE THESE?
 				name = unavailable_unique_decisions
 				target = flag:flag_formed_grand_duchy_swabia
@@ -634,11 +634,11 @@ form_bulgarian_empire_decision = {
 		show_as_tooltip = {
 			form_bulgarian_empire_decision_effect = yes # DO WE NEED TO MAKE?
 		}
-		form_bulgarian_empire_decision_effect = yes
 		# trigger_event = {
 		# 	id = cfe_form_bulgarian_empire.0001 # NEED TO MAKE
 		# }		
 		hidden_effect = {
+			form_bulgarian_empire_decision_effect = yes
 			add_to_global_variable_list = {
 				name = unavailable_unique_decisions
 				target = flag:form_bulgarian_empire_decision # DO WE NEED TO MAKE DIS?
@@ -1006,11 +1006,12 @@ integrate_aquitaine_decision = {
 		title:d_poitou = { set_de_jure_liege_title = title:k_france }
 		title:d_auvergne = { set_de_jure_liege_title = title:k_france }
 		title:d_bourbon = { set_de_jure_liege_title = title:k_france }
+		title:d_barcelona =  { set_de_jure_liege_title = title:k_valencia }
 		
 		# Destroys the the Kingdom of Aquitaine. DO I NEED TO DO AN IF STATEMENT FOR IF IT DOES OR DOES NOT EXIST?
 		destroy_title = title:k_aquitaine
 		
-		resolve_title_and_vassal_change = scope:change #DO I NEED THIS?
+		#resolve_title_and_vassal_change = scope:change #DO I NEED THIS?
 		add_prestige = major_prestige_gain #DO I NEED THIS?
 
 		#Once per game
@@ -1051,13 +1052,10 @@ decision_restore_aquitaine = {
 	is_shown = {
 		is_ruler = yes
 		is_landed = yes
-		culture = { has_cultural_heritage = heritage_frankish }
-		NOT = {
-			has_title = title:k_france
-			calc_true_if = { #At least 1 of the titles has de jure land
-				amount >= 1
-				title:k_aquitaine = { any_in_de_jure_hierarchy = { tier = tier_county } }
-			}
+		culture = { has_cultural_pillar = heritage_frankish }
+		 NOT = {
+		 	has_title = title:k_france
+			title:k_aquitaine = { any_in_de_jure_hierarchy = { tier = tier_county } }
 		}
 		OR = {
 			highest_held_title_tier = tier_duchy
