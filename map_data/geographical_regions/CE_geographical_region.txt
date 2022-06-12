@@ -116,3 +116,9 @@ custom_aquitaine = {
 		d_languedoc d_toulouse d_auvergne d_armagnac d_gascogne d_aquitaine d_poitou d_bourbon
 	}
 }
+
+custom_frisia01 = {
+	duchies = {
+		d_holland d_frisia d_utrecht d_gelre
+	}
+}

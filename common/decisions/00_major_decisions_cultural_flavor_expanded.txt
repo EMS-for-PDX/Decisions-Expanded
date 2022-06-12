@@ -6,12 +6,13 @@
 #decision_form_grand_duchy_franconia (HRE Flavor)
 #decision_form_grand_duchy_swabia (HRE Flavor)
 #decision_form_bulgarian_empire (Bulgarian Flavor)
-#decision_form_kingdom_of_leon (Iberian Flavor)
-#decision_form_kingdom_of_castille (Iberian Flavor)
+#decision_form_kingdom_of_leon (Iberian Flavor) (DEFUNCT WITH FATE OF IBERIA)
+#decision_form_kingdom_of_castille (Iberian Flavor) (DEFUNCT WITH FATE OF IBERIA)
 #decision_form_avar_khaganate (Avar Flavor)
 #decision_integrate_aquitaine (Carolingian Flavor)
-#decision_restore_aquitaine (Carolingian Flavor) # NEED GUIDANCE ON HOW TO CODE THIS REVERSAL
-#decision_form_samos_empire (Czech-Slovien Flavor)
+#decision_restore_aquitaine (Carolingian Flavor) 
+#decision_form_samos_empire (Czech-Slovien Flavor) 
+#decision_restore_frisian_kingdom (Frisian Flavor) # NOT CODED YET
 
 ##############################
 # Found the Kingdom of Oman	 #
@@ -1038,7 +1039,7 @@ integrate_aquitaine_decision = {
 }
 
 ######################################
-# Integrate the Kingdom of Aquitaine #       
+# Restore the Kingdom of Aquitaine #       
 # by UberEpicZach   			     # #Effect Done
 ######################################
 decision_restore_aquitaine = {
@@ -1182,6 +1183,109 @@ form_samos_empire_decision = {
 	
 	ai_potential = {
 		is_ruler = yes
+	}
+
+	ai_will_do = {
+		base = 1000
+	}
+}
+
+#####################################
+# Restore the Frisian Kingdom		#
+# by Celticus Magnus			    #
+##################################### #EFFECT NEEDED AND WE NEED TO DO AN ON GAME START EFFECT TO SWAP THE DE JURE DUCHIES TO LOTHARINGIA AND EAST FRANCIA
+restore_frisia_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	major = yes
+	ai_goal = yes
+
+	ai_check_interval = 120
+
+	desc = restore_frisia_decision_desc # NEED TO LOCALIZE 
+	selection_tooltip = restore_frisia_decision_tooltip # NEED TO LOCALIZE
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		exists = dynasty # Everyone should have a dynasty, but in case they don't...
+		OR = {
+			culture = culture:frisian	
+			culture = culture:dutch #Should the Dutch also be able to do this to have a kingdom of their own?
+		}
+		NOT = {	#You can only do it once.
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_restored_frisia
+			}
+		}
+		OR = {	
+			has_government = feudal_government
+		}
+		highest_held_title_tier <= tier_duchy
+	}
+
+
+	is_valid = {
+		#You must have sufficient clout.
+		is_independent_ruler = yes
+		prestige_level >= high_prestige_level
+
+		#You must be a Duke in the region and own Old Saxony's de jure lands.
+		OR = {	
+			has_title = title:d_holland
+			has_title = title:d_frisia
+			has_title = title:d_utrecht
+			has_title = title:d_gelre
+		}
+		NOR = {
+			has_title = title:e_france
+			has_title = title:e_hre
+			highest_held_title_tier = tier_empire
+		}
+		completely_controls_region = custom_frisia01
+
+		#You must have Frisian or Dutch Culture present in the area.
+
+		any_realm_province = { #You must have some realm support for your claims.
+			OR = {
+				culture = culture:frisian
+				culture = culture:dutch
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+		is_independent_ruler = yes
+		is_at_war = no
+	}
+
+	effect = {
+		save_scope_as = founder
+		show_as_tooltip = {
+			restore_frisia_decision_scripted_effect = yes #NEED TO MAKE
+		}
+		hidden_effect = {
+			restore_frisia_decision_scripted_effect = yes
+			add_to_global_variable_list = { #DO WE HAVE TO MAKE THESE?
+				name = unavailable_unique_decisions
+				target = flag:flag_restored_frisia
+			}
+			set_global_variable = {
+				name = flag_restored_frisia
+				value = root
+			}
+		}
+	}
+
+	cost = {
+		gold = 200
+		prestige = 300
+	}
+
+	ai_potential = {
+		always = yes
 	}
 
 	ai_will_do = {
