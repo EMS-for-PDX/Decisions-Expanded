@@ -95,3 +95,24 @@ wendish_empire = {
 	# Wendish Lands
 	d_mazovia d_upper_silesia d_lower_silesia d_lesser_poland d_wielkopolska d_kuyavia d_livonia d_prussia d_masuria d_grodno d_pinsk d_minsk d_polotsk d_smolensk d_lithuanians d_courland d_latgalians d_samogitia d_pommerania d_nordmark d_pomerelia d_ostmark
 }
+
+custom_samos_empire = {
+	duchies = {
+		d_nyitra d_moravia d_osterreich d_carinthia	d_carinthia d_meissen d_lausitz d_steyermark d_upper_silesia d_gyor d_somogy
+	}
+	counties = {
+		c_esztergom c_komarom c_szekesfehervar
+	}
+}
+
+custom_aquitaine_full = {
+	duchies = {
+		d_languedoc d_toulouse d_auvergne d_armagnac d_gascogne d_aquitaine d_poitou d_bourbon d_barcelona
+	}
+}
+
+custom_aquitaine = {
+	duchies = {
+		d_languedoc d_toulouse d_auvergne d_armagnac d_gascogne d_aquitaine d_poitou d_bourbon
+	}
+}

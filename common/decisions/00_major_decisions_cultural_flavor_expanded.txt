@@ -15,7 +15,7 @@
 
 ##############################
 # Found the Kingdom of Oman	 #
-# by Celticus Magnus	     #
+# by Celticus Magnus	     # #Effect Done
 ##############################
 found_kingdom_of_oman_decision = {
 	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
@@ -32,12 +32,12 @@ found_kingdom_of_oman_decision = {
         faith = faith:ibadi
         capital_province = { geographical_region = world_middle_east_arabia }
 		
-		NOT = {	#You can only do it once.
-			is_target_in_global_variable_list = {
-				name = unavailable_unique_decisions
-				target = flag:flag_founded_kingdom_of_oman #NEED TO MAKE THIS
-			}
-		}
+		# NOT = {	#You can only do it once.
+		# 	is_target_in_global_variable_list = {
+		# 		name = unavailable_unique_decisions
+		# 		target = flag:flag_founded_kingdom_of_oman #NEED TO MAKE THIS
+		# 	}
+		# }
 		has_government = clan_government
 		highest_held_title_tier = tier_duchy
 	}
@@ -64,7 +64,7 @@ found_kingdom_of_oman_decision = {
 	is_valid_showing_failures_only = {
 		is_capable_adult = yes
 		is_imprisoned = no
-		is_independent_ruler = no
+		is_independent_ruler = yes
 		is_at_war = no
 	}
 
@@ -73,10 +73,11 @@ found_kingdom_of_oman_decision = {
 		show_as_tooltip = {
 			found_kingdom_of_oman_decision_scripted_effect = yes # HAVE TO MAKE
 		}
-		trigger_event = {
-			id = cfe_found_oman.0001 # HAVE TO MAKE
-		}
+		# trigger_event = {
+		# 	id = cfe_found_oman.0001 # HAVE TO MAKE
+		# }
 		hidden_effect = {
+			found_kingdom_of_oman_decision_scripted_effect = yes
 			add_to_global_variable_list = {
 				name = unavailable_unique_decisions
 				target = flag:flag_founded_kingdom_of_oman # DO WE HAVE TO MAKE THESE?
@@ -214,7 +215,7 @@ restore_saxony_decision = {
 
 #####################################
 # Form the Grand Duchy of Saxony 	#
-# by Celticus Magnus			    #
+# by Celticus Magnus			    # #Effect Done
 #####################################
 form_grand_duchy_saxony_decision = {
 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
@@ -337,7 +338,7 @@ form_grand_duchy_saxony_decision = {
 
 #####################################
 # Form the Grand Duchy of Franconia #
-# by Celticus Magnus			    #
+# by Celticus Magnus			    # #Effect Done
 #####################################
 form_grand_duchy_franconia_decision = {
 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
@@ -453,7 +454,7 @@ form_grand_duchy_franconia_decision = {
 
 #####################################
 # Form the Grand Duchy of Swabia    #
-# by Celticus Magnus			    #
+# by Celticus Magnus			    # #Effect Done
 #####################################
 form_grand_duchy_swabia_decision = {
 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
@@ -566,7 +567,7 @@ form_grand_duchy_swabia_decision = {
 
 #####################################
 # Form the Bulgarian Empire	        #
-# by Celticus Magnus			    #
+# by Celticus Magnus			    # #Effect Done
 #####################################
 
 form_bulgarian_empire_decision = { 
@@ -654,215 +655,215 @@ form_bulgarian_empire_decision = {
 	}
 }
 
-##############################
-# Form the Kingdom of Leon   #
-# by Celticus Magnus	     #
-##############################
+# ##############################
+# # Form the Kingdom of Leon   #
+# # by Celticus Magnus	     #
+# ##############################
 
-form_the_kingdom_of_leon_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
-	major = yes
-	ai_goal = yes
+# form_the_kingdom_of_leon_decision = {
+# 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+# 	major = yes
+# 	ai_goal = yes
 
-	ai_check_interval = 120
+# 	ai_check_interval = 120
 
-	desc = form_the_kingdom_of_leon_decision_desc
-	selection_tooltip = form_the_kingdom_of_leon_decision_tooltip
+# 	desc = form_the_kingdom_of_leon_decision_desc
+# 	selection_tooltip = form_the_kingdom_of_leon_decision_tooltip
 
-	is_shown = {
-		#Can't form Leon if Leon already formed.
-		game_start_date <= 867.1.1
-		highest_held_title_tier >= tier_duchy
+# 	is_shown = {
+# 		#Can't form Leon if Leon already formed.
+# 		game_start_date <= 867.1.1
+# 		highest_held_title_tier >= tier_duchy
 
-		#Can't form before culture split.
-		has_culture_group = culture_group:iberian_group
-		NOT = {	has_culture = culture:visigothic }
-		any_sub_realm_county = {
-			OR = {
-				target_is_de_jure_liege_or_above = title:d_leon
-				target_is_de_jure_liege_or_above = title:d_asturias
-			}
-		}
-		NOT = {	
-			is_target_in_global_variable_list = {
-				name = unavailable_unique_decisions
-				target = flag:flag_formed_kingdom_of_leon
-			}
-		}
-	}
+# 		#Can't form before culture split.
+# 		has_culture_group = culture_group:iberian_group
+# 		NOT = {	has_culture = culture:visigothic }
+# 		any_sub_realm_county = {
+# 			OR = {
+# 				target_is_de_jure_liege_or_above = title:d_leon
+# 				target_is_de_jure_liege_or_above = title:d_asturias
+# 			}
+# 		}
+# 		NOT = {	
+# 			is_target_in_global_variable_list = {
+# 				name = unavailable_unique_decisions
+# 				target = flag:flag_formed_kingdom_of_leon
+# 			}
+# 		}
+# 	}
 
-	is_valid = {
-		is_independent_ruler = yes
-		has_primary_title = title:k_asturias
-		completely_controls = title:d_leon
-		completely_controls = title:d_asturias
-	}
+# 	is_valid = {
+# 		is_independent_ruler = yes
+# 		has_primary_title = title:k_asturias
+# 		completely_controls = title:d_leon
+# 		completely_controls = title:d_asturias
+# 	}
 
-	is_valid_showing_failures_only = {
-		is_capable_adult = yes
-		is_imprisoned = no
-		is_independent_ruler = yes
-		is_at_war = no
-	}
+# 	is_valid_showing_failures_only = {
+# 		is_capable_adult = yes
+# 		is_imprisoned = no
+# 		is_independent_ruler = yes
+# 		is_at_war = no
+# 	}
 
-	effect = {
-		# De jure shifts.
-		title:d_leon = { set_de_jure_liege_title = title:k_leon }
-		title:d_asturias = { set_de_jure_liege_title = title:k_leon }
-		hidden_effect = {
-			title:k_aragon = { set_de_jure_liege_title = title:e_spain }
-		}
+# 	effect = {
+# 		# De jure shifts.
+# 		title:d_leon = { set_de_jure_liege_title = title:k_leon }
+# 		title:d_asturias = { set_de_jure_liege_title = title:k_leon }
+# 		hidden_effect = {
+# 			title:k_aragon = { set_de_jure_liege_title = title:e_spain }
+# 		}
 
-		# Create kingdom title.
-		create_title_and_vassal_change = {
-			type = created
-			save_scope_as = change
-			add_claim_on_loss = no
-		}
-		title:k_leon = {
-			change_title_holder = {
-				holder = root
-				change = scope:change
-			}
-		}
-		resolve_title_and_vassal_change = scope:change
-		add_prestige = major_prestige_gain
+# 		# Create kingdom title.
+# 		create_title_and_vassal_change = {
+# 			type = created
+# 			save_scope_as = change
+# 			add_claim_on_loss = no
+# 		}
+# 		title:k_leon = {
+# 			change_title_holder = {
+# 				holder = root
+# 				change = scope:change
+# 			}
+# 		}
+# 		resolve_title_and_vassal_change = scope:change
+# 		add_prestige = major_prestige_gain
 
-		#Once per game
-		add_to_global_variable_list = {
-			name = unavailable_unique_decisions
-			target = flag:flag_formed_kingdom_of_leon
-		}
-		set_global_variable = {
-			name = flag_formed_kingdom_of_leon
-			value = root
-		}
-		set_primary_title_to = title:k_leon
-	}
+# 		#Once per game
+# 		add_to_global_variable_list = {
+# 			name = unavailable_unique_decisions
+# 			target = flag:flag_formed_kingdom_of_leon
+# 		}
+# 		set_global_variable = {
+# 			name = flag_formed_kingdom_of_leon
+# 			value = root
+# 		}
+# 		set_primary_title_to = title:k_leon
+# 	}
 
-	cost = {
-		gold = 200
-	}
+# 	cost = {
+# 		gold = 200
+# 	}
 
-	ai_potential = {
-		always = yes
-	}
+# 	ai_potential = {
+# 		always = yes
+# 	}
 
-	ai_will_do = {
-		base = 1000
-	}
-}
+# 	ai_will_do = {
+# 		base = 1000
+# 	}
+# }
 
-##################################
-# Form the Kingdom of Castille   #
-# by Celticus Magnus			 #
-##################################
+# ##################################
+# # Form the Kingdom of Castille   #
+# # by Celticus Magnus			 #
+# ##################################
 
-form_the_kingdom_of_castille_decision = {
-	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
-	major = yes
-	ai_goal = yes
+# form_the_kingdom_of_castille_decision = {
+# 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+# 	major = yes
+# 	ai_goal = yes
 
-	ai_check_interval = 120
+# 	ai_check_interval = 120
 
-	desc = form_the_kingdom_of_castille_decision_desc
-	selection_tooltip = form_the_kingdom_of_castille_decision_tooltip
+# 	desc = form_the_kingdom_of_castille_decision_desc
+# 	selection_tooltip = form_the_kingdom_of_castille_decision_tooltip
 
-	is_shown = {
-		#Can't form if Castille already formed.
-		game_start_date <= 867.1.1
-		highest_held_title_tier >= tier_duchy
+# 	is_shown = {
+# 		#Can't form if Castille already formed.
+# 		game_start_date <= 867.1.1
+# 		highest_held_title_tier >= tier_duchy
 
-		#Can't form until creation of Leon.
-		exists = title:k_leon.holder 
+# 		#Can't form until creation of Leon.
+# 		exists = title:k_leon.holder 
 
-		#Can't form before culture split.
-		has_culture_group = culture_group:iberian_group
-		NOT = {	has_culture = culture:visigothic }
-		any_sub_realm_county = {
-			OR = {
-				target_is_de_jure_liege_or_above = title:d_castilla
-				target_is_de_jure_liege_or_above = title:d_cantabria
-			}
-		}
-		NOT = {	
-			is_target_in_global_variable_list = {
-				name = unavailable_unique_decisions
-				target = flag:flag_formed_kingdom_of_castille
-			}
-		}
-	}
+# 		#Can't form before culture split.
+# 		has_culture_group = culture_group:iberian_group
+# 		NOT = {	has_culture = culture:visigothic }
+# 		any_sub_realm_county = {
+# 			OR = {
+# 				target_is_de_jure_liege_or_above = title:d_castilla
+# 				target_is_de_jure_liege_or_above = title:d_cantabria
+# 			}
+# 		}
+# 		NOT = {	
+# 			is_target_in_global_variable_list = {
+# 				name = unavailable_unique_decisions
+# 				target = flag:flag_formed_kingdom_of_castille
+# 			}
+# 		}
+# 	}
 
-	is_valid = {
-		is_independent_ruler = yes
-		OR = {
-			has_primary_title = title:k_asturias
-			has_primary_title = title:k_leon
-		}
-		completely_controls = title:d_castilla
-		completely_controls = title:d_cantabria
-	}
+# 	is_valid = {
+# 		is_independent_ruler = yes
+# 		OR = {
+# 			has_primary_title = title:k_asturias
+# 			has_primary_title = title:k_leon
+# 		}
+# 		completely_controls = title:d_castilla
+# 		completely_controls = title:d_cantabria
+# 	}
 
-	is_valid_showing_failures_only = {
-		is_capable_adult = yes
-		is_imprisoned = no
-		is_independent_ruler = yes
-		is_at_war = no
-	}
+# 	is_valid_showing_failures_only = {
+# 		is_capable_adult = yes
+# 		is_imprisoned = no
+# 		is_independent_ruler = yes
+# 		is_at_war = no
+# 	}
 
-	effect = {
-		# De jure shifts.
-		title:d_castilla = { set_de_jure_liege_title = title:k_castille }
-		title:d_cantabria = { set_de_jure_liege_title = title:k_castille }
-		hidden_effect = {
-			title:k_aragon = { set_de_jure_liege_title = title:e_spain }
-		}
+# 	effect = {
+# 		# De jure shifts.
+# 		title:d_castilla = { set_de_jure_liege_title = title:k_castille }
+# 		title:d_cantabria = { set_de_jure_liege_title = title:k_castille }
+# 		hidden_effect = {
+# 			title:k_aragon = { set_de_jure_liege_title = title:e_spain }
+# 		}
 
-		# Create kingdom title.
-		create_title_and_vassal_change = {
-			type = created
-			save_scope_as = change
-			add_claim_on_loss = no
-		}
-		title:k_castille = {
-			change_title_holder = {
-				holder = root
-				change = scope:change
-			}
-		}
-		resolve_title_and_vassal_change = scope:change
-		add_prestige = major_prestige_gain
+# 		# Create kingdom title.
+# 		create_title_and_vassal_change = {
+# 			type = created
+# 			save_scope_as = change
+# 			add_claim_on_loss = no
+# 		}
+# 		title:k_castille = {
+# 			change_title_holder = {
+# 				holder = root
+# 				change = scope:change
+# 			}
+# 		}
+# 		resolve_title_and_vassal_change = scope:change
+# 		add_prestige = major_prestige_gain
 		
-		# Destroys remnants of Asturias.
-		destroy_title = title:k_asturias
+# 		# Destroys remnants of Asturias.
+# 		destroy_title = title:k_asturias
 
-		#Once per game
-		add_to_global_variable_list = {
-			name = unavailable_unique_decisions
-			target = flag:flag_formed_kingdom_of_castille
-		}
-		set_global_variable = {
-			name = flag_formed_kingdom_of_castille
-			value = root
-		}
-	}
+# 		#Once per game
+# 		add_to_global_variable_list = {
+# 			name = unavailable_unique_decisions
+# 			target = flag:flag_formed_kingdom_of_castille
+# 		}
+# 		set_global_variable = {
+# 			name = flag_formed_kingdom_of_castille
+# 			value = root
+# 		}
+# 	}
 
-	cost = {
-		gold = 200
-	}
+# 	cost = {
+# 		gold = 200
+# 	}
 
-	ai_potential = {
-		always = yes
-	}
+# 	ai_potential = {
+# 		always = yes
+# 	}
 
-	ai_will_do = {
-		base = 1000
-	}
-}
+# 	ai_will_do = {
+# 		base = 1000
+# 	}
+# }
 
 #####################################
 # Reform the Avar Khaganate	        #
-# by Celticus Magnus			    #
+# by Celticus Magnus			    # #Effect Done
 #####################################
 
 form_avar_khaganate_decision = { 
@@ -923,11 +924,11 @@ form_avar_khaganate_decision = {
 		show_as_tooltip = {
 			form_avar_khaganate_decision_effect = yes # DO WE NEED TO MAKE?
 		}
-		form_avar_khaganate_decision_effect = yes
 		# trigger_event = {
 		# 	id = cfe_form_avar_khaganate.0001 # NEED TO MAKE
 		# }		
 		hidden_effect = {
+			form_avar_khaganate_decision_effect = yes
 			add_to_global_variable_list = {
 				name = unavailable_unique_decisions
 				target = flag:form_avar_khaganate_decision # DO WE NEED TO MAKE DIS?
@@ -946,7 +947,7 @@ form_avar_khaganate_decision = {
 
 ######################################
 # Integrate the Kingdom of Aquitaine #       
-# by Celticus Magnus			     #
+# by Celticus Magnus			     # #Effect Done
 ######################################
 integrate_aquitaine_decision = {
 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
@@ -1035,13 +1036,67 @@ integrate_aquitaine_decision = {
 	}
 }
 
+######################################
+# Integrate the Kingdom of Aquitaine #       
+# by UberEpicZach   			     # #Effect Done
+######################################
 decision_restore_aquitaine = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = yes
+	ai_goal = yes
 
+	desc = restore_aquitaine_decision_desc
+	selection_tooltip = restore_aquitaine_decision_tooltip
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		culture = { has_cultural_heritage = heritage_frankish }
+		NOT = {
+			has_title = title:k_france
+			calc_true_if = { #At least 1 of the titles has de jure land
+				amount >= 1
+				title:k_aquitaine = { any_in_de_jure_hierarchy = { tier = tier_county } }
+			}
+		}
+		OR = {
+			highest_held_title_tier = tier_duchy
+			highest_held_title_tier = tier_county
+		}
+		NOT = {  #Can only do it once.
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:restore_aquitaine_decision
+			}
+		}	
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		completely_controls_region = custom_aquitaine
+		prestige_level >= high_prestige_level
+		highest_held_title_tier = tier_duchy
+	}
+	effect = {
+		show_as_tooltip = {
+			restore_aquitaine_decision_effect = yes # DO WE NEED TO MAKE?
+		}
+		# trigger_event = {
+		# 	id = cfe_form_samos_empire.0001 # NEED TO MAKE
+		# }		
+		hidden_effect = {
+			restore_aquitaine_decision_effect = yes
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:restore_aquitaine_decision # DO WE NEED TO MAKE DIS?
+			}
+		}		
+	}
 }
 
 #####################################
 # Reform Samo's Empire	            #
-# by Celticus Magnus			    #
+# by Celticus Magnus			    # #Effect Done
 #####################################
 
 form_samos_empire_decision = { 
@@ -1097,20 +1152,7 @@ form_samos_empire_decision = {
 			has_primary_title = title:k_bohemia
 			completely_controls = title:k_moravia
 		}
-		completely_controls = title:d_nyitra
-		completely_controls = title:d_moravia
-		completely_controls = title:d_osterreich
-		completely_controls = title:d_carinthia
-		completely_controls = title:d_bohemia
-		completely_controls = title:d_meissen
-		completely_controls = title:d_lausitz
-		completely_controls = title:d_steyermark
-		completely_controls = title:d_upper_silesia
-		completely_controls = title:d_gyor
-		completely_controls = title:d_somogy
-		completely_controls = title:c_esztergom
-		completely_controls = title:c_komarom
-		completely_controls = title:c_szekesfehervar
+		completely_controls_region = custom_samos_empire
 	}
 
 	is_valid_showing_failures_only = {

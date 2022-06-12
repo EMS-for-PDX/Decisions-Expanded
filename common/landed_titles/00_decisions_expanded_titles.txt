@@ -33,3 +33,9 @@ k_grand_swabia = {
     capital = c_ulm
 }
 
+k_oman = {
+	color = { 235 160 30 }
+	color2 = { 255 255 255 }
+
+	capital = c_nizwa
+}
