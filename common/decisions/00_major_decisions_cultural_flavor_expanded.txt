@@ -23,8 +23,6 @@ found_kingdom_of_oman_decision = {
 	major = yes
 	ai_goal = yes
 
-	ai_check_interval = 120
-
 	desc = found_kingdom_of_oman_decision_desc #NEED TO MAKE THIS
 	selection_tooltip = found_kingdom_of_oman_decision_tooltip #NEED TO MAKE THIS
 
@@ -112,8 +110,6 @@ restore_saxony_decision = {
 	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
 	major = yes
 	ai_goal = yes
-
-	ai_check_interval = 120
 
 	desc = restore_saxony_decision_desc # NEED TO LOCALIZE 
 	selection_tooltip = restore_saxony_decision_tooltip # NEED TO LOCALIZE
@@ -222,8 +218,6 @@ form_grand_duchy_saxony_decision = {
 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
 	major = yes
 	ai_goal = yes
-
-	ai_check_interval = 120
 
 	desc = form_grand_duchy_saxony_decision_desc # NEED TO LOCALIZE 
 	selection_tooltip = form_grand_duchy_saxony_decision_tooltip # NEED TO LOCALIZE
@@ -349,8 +343,6 @@ form_grand_duchy_franconia_decision = {
 	major = yes
 	ai_goal = yes
 
-	ai_check_interval = 120
-
 	desc = form_grand_duchy_franconia_decision_desc # NEED TO LOCALIZE 
 	selection_tooltip = form_grand_duchy_franconia_decision_tooltip # NEED TO LOCALIZE
 	major = yes
@@ -464,8 +456,6 @@ form_grand_duchy_swabia_decision = {
 	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
 	major = yes
 	ai_goal = yes
-
-	ai_check_interval = 120
 
 	desc = form_grand_duchy_swabia_decision_desc # NEED TO LOCALIZE 
 	selection_tooltip = form_grand_duchy_swabia_decision_tooltip # NEED TO LOCALIZE
@@ -1130,7 +1120,7 @@ form_samos_empire_decision = {
 			}
 		}		
 		NOR = {	#Can't form if you already hold an Empire title.
-			has_title = title:e_germania
+			has_title = title:e_hre
 			has_title = title:e_wendish_empire
 			has_title = title:e_carpathia
 			highest_held_title_tier = tier_empire
@@ -1202,8 +1192,6 @@ restore_frisia_decision = {
 	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
 	major = yes
 	ai_goal = yes
-
-	ai_check_interval = 120
 
 	desc = restore_frisia_decision_desc # NEED TO LOCALIZE 
 	selection_tooltip = restore_frisia_decision_tooltip # NEED TO LOCALIZE
