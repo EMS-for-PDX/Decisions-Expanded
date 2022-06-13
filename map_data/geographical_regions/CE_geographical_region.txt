@@ -100,7 +100,7 @@ wendish_empire = {
 
 custom_samos_empire = {
 	duchies = {
-		d_nyitra d_moravia d_osterreich d_carinthia d_meissen d_lausitz d_steyermark d_upper_silesia d_gyor d_somogy d_bohemia
+		d_nyitra d_moravia d_osterreich d_meissen d_lausitz d_steyermark d_upper_silesia d_gyor d_somogy d_bohemia 
 	}
 	counties = {
 		c_esztergom c_komarom c_szekesfehervar

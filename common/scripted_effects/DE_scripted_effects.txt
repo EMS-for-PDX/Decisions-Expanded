@@ -324,7 +324,7 @@ avar_test_effect = {
 	}
 
 	every_county_in_region = {
-		region = custom_avaria
+		region = custom_samos_empire
 		change_title_holder = {
 			holder = root
 			change = scope:title_change
@@ -373,6 +373,9 @@ form_samos_empire_decision_effect = {
 
 	#custom_tooltip = restore_aquitaine_decision_effect_tooltip
 	hidden_effect = {
+		title:d_krain = { save_scope_as = samo_krain }
+		title:d_carinthia = { save_scope_as = samo_carinthia }
+		title:d_istria = { save_scope_as = samo_istria }
 		every_held_title = {
 			limit = {
 				tier = tier_kingdom
@@ -382,6 +385,24 @@ form_samos_empire_decision_effect = {
 				destroy_title = prev
 			}
 		}
+		if = {	#If owned, annex Krain
+			limit = {
+				title:d_krain = { holder = root }
+			}
+			title:d_krain = { set_de_jure_liege_title = title:k_winideheim }
+		}
+		if = {	#If owned, annex Carinthia.
+			limit = {
+				title:d_carinthia = { holder = root }
+			}
+			title:d_carinthia = { set_de_jure_liege_title = title:k_winideheim  }
+		}
+		if = {	#If owned, annex Istria.
+			limit = {
+				title:d_istria = { holder = root }
+			}
+			title:d_istria = { set_de_jure_liege_title = title:k_winideheim  }
+		}
 
 		every_county_in_region = {
 			region = custom_samos_empire
@@ -389,6 +410,7 @@ form_samos_empire_decision_effect = {
 		}
 		title:k_winideheim = { set_de_jure_liege_title = title:e_west_slavia }
 	}
+	custom_tooltip = form_samos_empire_decision_effect_de_jure_tt
 }
 
 restore_frisia_decision_scripted_effect = {

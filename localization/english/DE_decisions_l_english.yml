@@ -1,7 +1,68 @@
 ﻿l_english:
 
   #Found Kingdom of Oman
-  found_kingdom_of_oman_decision: "This is the title"
-  found_kingdom_of_oman_decision_desc: "This is the brief description"
-  found_kingdom_of_oman_decision_tooltip: "This is a tooltip?"
-  found_kingdom_of_oman_decision_confirm: "This is the button on the bottom of the screen where you click yes on the decision"
+  found_kingdom_of_oman_decision: "Establish the Sultanate of Oman"
+  found_kingdom_of_oman_decision_desc: "The Ibadi people of Oman deserve a faithful ruler that will stand against the incursions and oppression of foreign invaders. Perhaps I am the one to be this leader..."
+  found_kingdom_of_oman_decision_tooltip: "Oman become a [de_jure|E] [kingdom|E]."
+  found_kingdom_of_oman_decision_confirm: "Gather the faithful! It is time!"
+
+  #Restore Kingdom of Saxony
+  restore_saxony_decision: "Restore the Kingdom of Saxony"
+  restore_saxony_decision_desc: "The Saxons were once a free people with their own mighty realm who stood against the likes of Charlemagne. It is time for our people to be free once more!"
+  restore_saxony_decision_tooltip: "Saxony become a [de_jure|E] [kingdom|E]"
+  restore_saxony_decision_confirm: "The time has come to declare our sovereignty!"
+
+  #Found Grand Saxony
+  form_grand_duchy_saxony_decision: "Establish Grand Duchy of Saxony"
+  form_grand_duchy_saxony_decision_desc: "It is time that the lands of Saxony be placed above the lesser states within our realm."
+  form_grand_duchy_saxony_decision_tooltip: "Saxony become a [de_jure|E] [kingdom|E]"
+  form_grand_duchy_saxony_decision_confirm: "It is time, call upon the Emperor!"
+
+  #Found Grand Franconia
+  form_grand_duchy_franconia_decision: "Establish Grand Duchy of Franconia"
+  form_grand_duchy_franconia_decision_desc: "It is time that the lands of Franconia be placed above the lesser states within our realm."
+  form_grand_duchy_franconia_decision_tooltip: "Franconia become a [de_jure|E] [kingdom|E]"
+  form_grand_duchy_franconia_decision_confirm: "It is time, call upon the Emperor!"
+
+  #Found Grand Swabia
+  form_grand_duchy_swabia_decision: "Establish Grand Duchy of Swabia"
+  form_grand_duchy_swabia_decision_desc: "It is time that the lands of Swabia be placed above the lesser states within our realm."
+  form_grand_duchy_swabia_decision_tooltip: "Swabia become a [de_jure|E] [kingdom|E]"
+  form_grand_duchy_swabia_decision_confirm: "It is time, call upon the Emperor!"
+
+  #Form the Bulgarian Empire
+  form_bulgarian_empire_decision: "Form the Bulgarian Empire"
+  form_bulgarian_empire_decision_desc: "The Greeks have lost their unchallenged dominion in the Balkans. Now we Bulgarians stand as the undisputed power in Balkan Peninsula, able to wield as much power and influence as the ancient Eastern Roman Empire. As such it is only right to declare the emergence of new and mighty empire."
+  form_bulgarian_empire_decision_tooltip: "Bulgaria become a [de_jure|E] [empire|E]"
+  form_bulgarian_empire_decision_confirm: "Glory to Bulgaria!"
+
+  #Restore the Avar Khaganate
+  form_avar_khaganate_decision: "Restore the Avar Khaganate"
+  form_avar_khaganate_decision_desc: "Since our people's defeat at the hand of Charlamagne we have been a mere shadow of our former glory. However if one of us were to rise and restore Avar rule over our former territories, our people's pride would be restored once more."
+  form_avar_khaganate_decision_tooltip: "The Avar Khaganate become a [de_jure|E] [empire|E]"
+  form_avar_khaganate_decision_confirm: "Gather all the realm and prepare the proclamation!"
+
+  #Integrate Aquitaine
+  integrate_aquitaine_decision: "Integrate Aquitaine"
+  integrate_aquitaine_decision_desc: "For too long we have allowed the land of the Franks to be divided between the Kingdoms of West Francia and Aquitaine. The time has come to unite the two crowns under one ruler and treat the two regions as they were meant to be: as one."
+  integrate_aquitaine_decision_tooltip: "The Kingdom of Aquitaine becomes de jure France"
+  integrate_aquitaine_decision_confirm: "Our People will be united!"
+
+  #Restore the Kingdom of Aquitaine
+  integrate_aquitaine_decision: "Restore the Kingdom of Aquitaine"
+  integrate_aquitaine_decision_desc: "For too long we have allowed the land of the Franks to be divided between the Kingdoms of West Francia and Aquitaine. The time has come to unite the two crowns under one ruler and treat the two regions as they were meant to be: as one."
+  integrate_aquitaine_decision_tooltip: "The Kingdom of Aquitaine becomes de jure France"
+  integrate_aquitaine_decision_confirm: "Our People will be united!"
+
+  #Restore Samo's Empire
+  form_samos_empire_decision: "Restore Samo's Kingdom"
+  form_samos_empire_decision_desc: "Long ago, the leader Samo's united the disparite tribes of the West Slavs and forged a realm of his own. It is time that I forge my own realm as he did so long ago."
+  form_samos_empire_decision_tooltip: "Samo's Kingdom becomes a [de_jure|E] [kingdom|E]."
+  form_samos_empire_decision_effect_de_jure_tt: "If owned, the [duchies|E] of [samo_carinthia.GetNameNoTier], [samo_krain.GetNameNoTier] and [samo_istria.GetNameNoTier] will each become [de_jure|E] Winideheim."
+  form_samos_empire_decision_confirm: "Finally a realm in my own image!"
+
+  #Restore the Frisian Kingdom
+  restore_frisia_decision: "Restore the Frisian Kingdom"
+  restore_frisia_decision_desc: "For too long we have allowed the land of the Frisians be divided between the Frankish kings of Francia and Germany. The time has come to declare our lands free and the Frisian Kingdom reborn!"
+  restore_frisia_decision_tooltip: "Frisia become a [de_jure|E] [kingdom|E]"
+  restore_frisia_decision_confirm: "Frisia will be free once more!"
