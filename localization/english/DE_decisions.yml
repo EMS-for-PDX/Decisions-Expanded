@@ -1,0 +1,7 @@
+﻿l_english:
+
+  #Found Kingdom of Oman
+  found_kingdom_of_oman_decision: "This is the title"
+  found_kingdom_of_oman_decision_desc: "This is the brief description"
+  found_kingdom_of_oman_decision_tooltip: "This is a tooltip?"
+  found_kingdom_of_oman_decision_confirm: "This is the button on the bottom of the screen where you click yes on the decision"

@@ -29,7 +29,7 @@ found_kingdom_of_oman_decision = {
 	selection_tooltip = found_kingdom_of_oman_decision_tooltip #NEED TO MAKE THIS
 
 	is_shown = {
-		has_culture_group = culture_group:arabic_group
+		culture = { has_cultural_pillar = heritage_arabic }
         faith = faith:ibadi
         capital_province = { geographical_region = world_middle_east_arabia }
 		

@@ -289,7 +289,7 @@ give_landsproper = {
 		}
 		set_de_jure_liege_title = title:k_hungary
 	}
-	title:k_wallachia = {
+	title:k_dacia = {
 		every_in_de_jure_hierarchy = {
 			limit = { tier = tier_duchy }
 			set_de_jure_liege_title = title:k_hungary
