@@ -74,9 +74,9 @@ found_kingdom_of_oman_decision = {
 		show_as_tooltip = {
 			found_kingdom_of_oman_scripted_effect = yes # HAVE TO MAKE
 		}
-		# trigger_event = {
-		# 	id = cfe_found_oman.0001 # HAVE TO MAKE
-		# }
+		trigger_event = {
+			id =  DE_decision_event.1 # HAVE TO MAKE
+		}
 		hidden_effect = {
 			found_kingdom_of_oman_scripted_effect = yes
 			add_to_global_variable_list = {
@@ -184,9 +184,9 @@ restore_saxony_decision = {
 		show_as_tooltip = {
 			restore_saxony_decision_scripted_effect = yes #NEED TO MAKE
 		}
-		# trigger_event = {
-		# 	id = cfe_restore_saxony.0001 #NEED TO MAKE
-		# }
+		trigger_event = {
+			id = DE_decision_event.2 #NEED TO MAKE
+		}
 		hidden_effect = {
 			restore_saxony_decision_scripted_effect = yes
 			add_to_global_variable_list = { #DO WE HAVE TO MAKE THESE?
@@ -292,12 +292,15 @@ form_grand_duchy_saxony_decision = {
 
 	effect = {
 		save_scope_as = founder
+		top_liege = {
+			save_scope_as = scoped_emperor
+		}
 		show_as_tooltip = {
 			form_grand_duchy_saxony_decision_scripted_effect = yes #NEED TO MAKE
 		}
-		# trigger_event = {
-		# 	id = cfe_form_grand_duchy_saxony.0001 #NEED TO MAKE
-		# }
+		trigger_event = {
+			id = DE_decision_event.3 #NEED TO MAKE
+		}
 		hidden_effect = {
 			form_grand_duchy_saxony_decision_scripted_effect = yes
 			add_to_global_variable_list = { #DO WE HAVE TO MAKE THESE?
@@ -411,9 +414,9 @@ form_grand_duchy_franconia_decision = {
 		show_as_tooltip = {
 			form_grand_duchy_franconia_decision_scripted_effect = yes #NEED TO MAKE
 		}
-		# trigger_event = {
-		# 	id = cfe_form_grand_duchy_franconia.0001 #NEED TO MAKE
-		# }
+		trigger_event = {
+			id = DE_decision_event.4 #NEED TO MAKE
+		}
 		hidden_effect = {
 			form_grand_duchy_franconia_decision_scripted_effect = yes
 			add_to_global_variable_list = { #DO WE HAVE TO MAKE THESE?
@@ -524,9 +527,9 @@ form_grand_duchy_swabia_decision = {
 		show_as_tooltip = {
 			form_grand_duchy_swabia_decision_scripted_effect = yes #NEED TO MAKE
 		}
-		# trigger_event = {
-		# 	id = cfe_form_grand_duchy_swabia.0001 #NEED TO MAKE
-		# }
+		trigger_event = {
+			id = DE_decision_event.5 #NEED TO MAKE
+		}
 		hidden_effect = {
 			form_grand_duchy_swabia_decision_scripted_effect = yes
 			add_to_global_variable_list = { #DO WE HAVE TO MAKE THESE?
@@ -635,9 +638,9 @@ form_bulgarian_empire_decision = {
 		show_as_tooltip = {
 			form_bulgarian_empire_decision_effect = yes # DO WE NEED TO MAKE?
 		}
-		# trigger_event = {
-		# 	id = cfe_form_bulgarian_empire.0001 # NEED TO MAKE
-		# }		
+		trigger_event = {
+			id = DE_decision_event.6 # NEED TO MAKE
+		}		
 		hidden_effect = {
 			form_bulgarian_empire_decision_effect = yes
 			add_to_global_variable_list = {
@@ -925,9 +928,9 @@ form_avar_khaganate_decision = {
 		show_as_tooltip = {
 			form_avar_khaganate_decision_effect = yes # DO WE NEED TO MAKE?
 		}
-		# trigger_event = {
-		# 	id = cfe_form_avar_khaganate.0001 # NEED TO MAKE
-		# }		
+		trigger_event = {
+			id = DE_decision_event.7 # NEED TO MAKE
+		}		
 		hidden_effect = {
 			form_avar_khaganate_decision_effect = yes
 			add_to_global_variable_list = {
@@ -1171,9 +1174,10 @@ form_samos_empire_decision = {
 			form_samos_empire_decision_effect = yes # DO WE NEED TO MAKE?
 		}
 		trigger_event = {
-			id = cfe_form_samos_empire.0001 # NEED TO MAKE
+			id = DE_decision_event.10 # NEED TO MAKE
 		}		
 		hidden_effect = {
+			form_samos_empire_decision_effect = yes
 			add_to_global_variable_list = {
 				name = unavailable_unique_decisions
 				target = flag:form_samos_empire_decision # DO WE NEED TO MAKE DIS?
@@ -1265,6 +1269,9 @@ restore_frisia_decision = {
 		save_scope_as = founder
 		show_as_tooltip = {
 			restore_frisia_decision_scripted_effect = yes #NEED TO MAKE
+		}
+		trigger_event = {
+			id = DE_decision_event.11
 		}
 		hidden_effect = {
 			restore_frisia_decision_scripted_effect = yes

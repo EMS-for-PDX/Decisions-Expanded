@@ -1,3 +1,56 @@
 ﻿l_english:
 
-  
+  #Found the Kingdom of Oman
+  DE_decision_event.1.t: "The Kingdom of Oman"
+  DE_decision_event.1.desc: "The Ibadi people have for centuries lacked a realm for their own people, while the Persians to the north and Caliphs to the west subjected our lands to foreign influence, false leaders, and the far-off lands scoffed at our tribes, but no more. The disunited tribes now kneel together before the sultan of Oman.\n\nWith my coronation as [founder.GetTitleAsNameNoTooltip], I shall usher in a golden age of prosperity for all faithful within our realm."
+  DE_decision_event.1.a: "At Last!"
+
+  #Restore the Kingdom of Old Saxony
+  DE_decision_event.2.t: "The Old Saxons"
+  DE_decision_event.2.desc: "The Saxon people were once a mighty force that stood against the forces of Charlemagne until we could bend no more. Since that fateful time, the Saxons have been subject to the rule of others, unable to determine their own destiny. Now that my foes are defeated and independence has been achieved, it is time to proclaim the Kingdom of Saxony restored! As [founder.GetTitleAsNameNoTooltip], I shall lead my people to a glorious future!"
+  DE_decision_event.2.a: "Restored once more!"
+
+  #Form the Grand Duchy of Saxony
+  DE_decision_event.3.t: "The Archduchy of Saxony"
+  DE_decision_event.3.desc: "Thanks to my illustrious accomplishments consolidating the Saxon heartlands, and the tremendous influence that my dynasty has acquired over the Holy Roman Empire, [scoped_emperor.GetTitledFirstName] has finally recognized the traditional supremacy of Saxony over the many petty dukes of Germany.\n\nFrom this day forward, all my successors will carry the distinguished title of #EMP Grand Duke#!, the equal of any king, to set themselves apart from the lesser princes and princesses of the Empire."
+  DE_decision_event.3.a: "Saxony erit in orbe ultima!"
+
+  #Form the Grand Duchy of Franconia
+  DE_decision_event.4.t: "The Archduchy of Franconia"
+  DE_decision_event.4.desc: "Thanks to my illustrious accomplishments consolidating the lands of Franconia, and the tremendous influence that my dynasty has acquired over the Holy Roman Empire, [scoped_emperor.GetTitledFirstName] has finally recognized Franconia as the ultimate seat of power over the many petty dukes of Germany.\n\nFrom this day forward, all my successors will carry the distinguished title of #EMP Grand Duke#!, the equal of any king, to set themselves apart from the lesser princes and princesses of the Empire."
+  DE_decision_event.4.a: "Francon erit in orbe ultima!"
+
+  #Form the Grand Duchy of Swabia
+  DE_decision_event.5.t: "The Archduchy of Swabia"
+  DE_decision_event.5.desc: "Thanks to my illustrious accomplishments consolidating the Swabian heartlands, and the tremendous influence that my dynasty has acquired over the Holy Roman Empire, [scoped_emperor.GetTitledFirstName] has finally recognized the traditional lands of Alemannia as superior over the many petty dukes of Germany.\n\nFrom this day forward, all my successors will carry the distinguished title of #EMP Grand Duke#!, the equal of any king, to set themselves apart from the lesser princes and princesses of the Empire."
+  DE_decision_event.5.a: "Swabia erit in orbe ultima!"
+
+  #Form the Bulgarian Empire
+  DE_decision_event.6.t: ""
+  DE_decision_event.6.desc: ""
+  DE_decision_event.6.a: ""
+
+  #Reform the Avar Khaganate 
+  DE_decision_event.7.t: "The Avar Khaganate"
+  DE_decision_event.7.desc: "The Avar once ruled a vast empire stretching from the Pontic Steppes to the borders of the Germans. Unable to withstand the vicious forces of the Franks, our empire crumbled before us. Our struggle to survive has been a difficult journey but today we struggle no more. The Avar Khaganate is now restored and ready to bring about an era of glory and prosperity to our peoples!"
+  DE_decision_event.7.a: "To the new Khaganate!"
+
+  #Integrate the Kingdom of Aquitaine
+  DE_decision_event.8.t: ""
+  DE_decision_event.8.desc: ""
+  DE_decision_event.8.a: ""
+
+  #Restore the Kingdom of Aquitaine
+  DE_decision_event.9.t: ""
+  DE_decision_event.9.desc: ""
+  DE_decision_event.9.a: ""
+
+  #Reform Samo's Empire
+  DE_decision_event.10.t: "Samo's Empire"
+  DE_decision_event.10.desc: "Our people were once united under the leadership of Samos who possessed an empire uniting many of the West Slavs. It is with pride and exhilaration that I can proclaim Samo’s Empire, "The Hill of the Wends" reborn! Our realm will surpass the empire of old and lead us into a glorious future!"
+  DE_decision_event.10.a: "At Last!"
+
+  #Restore the Frisian Kingdom
+  DE_decision_event.11.t: "The Frisian Kingdom!"
+  DE_decision_event.11.desc: "The Frisians of old managed to retain their independence from the Frankish yoke until they could bear no more. Centuries of foreign domination have caused the idea of an independent realm to seem like a far off dream. Under my leadership, the realm of Frisia is a dream no more! Our people are now free and ready to seek their destiny amongst the other great powers of Europa!"
+  DE_decision_event.11.a: "At Last!"
