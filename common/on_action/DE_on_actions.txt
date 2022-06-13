@@ -2,6 +2,8 @@
 	on_actions = {
 		DE_Aquitaine
 		DE_Frisia
+		DE_Italia1066
+		DE_Italia867
 	}
 }
 
@@ -35,3 +37,39 @@ DE_Frisia = {
 		}
 	}
 }
+
+DE_Italia867 = {
+	trigger = {
+		game_start_date = 867.1.1
+	}
+	effect = {
+		if = { 
+			limit = {
+				game_start_date = 867.1.1
+			}
+			title:k_italy = { set_de_jure_liege_title = title:e_france }
+			title:k_romagna = { set_de_jure_liege_title = title:e_france }
+			title:k_lotharingia = { set_de_jure_liege_title = title:e_france }
+			title:k_east_francia = { set_de_jure_liege_title = title:e_france }
+			title:k_bavaria = { set_de_jure_liege_title = title:e_france }
+			title:k_sardinia = { set_de_jure_liege_title = title:e_byzantium }
+		}
+	}
+}
+
+DE_Italia1066 = {
+	trigger = {
+		game_start_date = 1066.9.15
+	}
+	effect = {
+		if = { 
+			limit = {
+				game_start_date = 1066.9.15
+			}
+			title:k_italy = { set_de_jure_liege_title = title:e_hre }
+			title:k_romagna = { set_de_jure_liege_title = title:e_hre }
+			title:k_sardinia = { set_de_jure_liege_title = title:e_byzantium }
+		}
+	}
+}
+
