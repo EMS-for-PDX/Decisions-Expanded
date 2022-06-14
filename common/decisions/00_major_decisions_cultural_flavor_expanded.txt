@@ -1158,7 +1158,10 @@ form_samos_empire_decision = {
 				this = culture:frankish
 			}
 		}
-		knows_language = language_czech
+		OR = {
+			knows_language = language_czech_slovak
+			knows_language = language_czecho_slovak
+		}
 		#You must rule Moravia or Bohemia and posess the former realms held by Samos
 		OR = {
 			has_primary_title = title:k_moravia

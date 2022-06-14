@@ -28,7 +28,7 @@ DE_Frisia = {
 	effect = {
 		if = { 
 			limit = {
-				current_date > 850.1.1
+				current_date > 775.1.1
 			}
 			every_county_in_region = {
 				region = custom_frisia01
@@ -49,6 +49,7 @@ DE_Italia867 = {
 			}
 			title:k_italy = { set_de_jure_liege_title = title:e_france }
 			title:k_romagna = { set_de_jure_liege_title = title:e_france }
+			title:k_frisia = { set_de_jure_liege_title = title:e_france }
 			title:k_lotharingia = { set_de_jure_liege_title = title:e_france }
 			title:k_east_francia = { set_de_jure_liege_title = title:e_france }
 			title:k_bavaria = { set_de_jure_liege_title = title:e_france }

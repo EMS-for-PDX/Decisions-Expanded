@@ -324,7 +324,7 @@ avar_test_effect = {
 	}
 
 	every_county_in_region = {
-		region = custom_samos_empire
+		region = custom_frisia01
 		change_title_holder = {
 			holder = root
 			change = scope:title_change
